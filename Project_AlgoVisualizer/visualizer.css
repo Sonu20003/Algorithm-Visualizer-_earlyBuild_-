@@ -1,0 +1,191 @@
+:root {
+    --x: 60px;
+    --minHeight: 500px;
+    --minSlide: 0px;
+    --swapDist: 60px;
+}
+
+body{
+    background-color: black;
+}
+#container {
+    border: 1px solid;
+    min-height: 500px;
+    min-width: 500px;
+    text-align: center;
+    line-height: var(--minHeight);
+    background-color: black;
+    border-radius: 20px;
+    box-shadow: 0px 0px 100px white;
+    
+}
+
+span {
+    display: inline-block;
+    text-align: center;
+    line-height: 50px;
+    vertical-align: middle;
+    min-height: 50px;
+    max-height: 50px;
+    min-width: 50px;
+    top: 0;
+    background-color: hsl(0, 0%, 20%);
+    border: 5px solid hsl(283, 94%, 61%);
+    border-radius: 20%;
+    color: aliceblue;
+    font-size: 1.7em;
+    z-index: 0;
+}
+div{
+    font-size: 1em;
+    color: whitesmoke;
+}
+.half {
+    display: inline-block;
+}
+
+.newSpan {
+    display: inline-block;
+    text-align: center;
+    line-height: 50px;
+    vertical-align: middle;
+    min-height: 50px;
+    min-width: 50px;
+    background-color: hsl(0, 0%, 50%);
+    border: 5px solid hsl(283, 94%, 61%);
+    border-radius: 20%;
+    color: aliceblue;
+    font-size: 1.7em;
+    position: absolute; /* Position absolutely */
+    top: 0; /* Place at the top of the parent */
+    left: 0; /* Place at the left of the parent */
+    z-index: 0; /* Behind the original span */
+}
+.brackets{
+    font-size: 2rem;
+}
+#min {
+    text-align: center;
+    line-height: 50px;
+    vertical-align: middle;
+    min-height: 50px;
+    min-width: 50px;
+    top: 0;
+    background-color: hsl(0, 0%, 20%);
+    border: 5px solid hsl(283, 94%, 61%);
+    border-radius: 20%;
+    color: aliceblue;
+    font-size: 1.7em;
+
+}
+/* Animations */
+
+
+@keyframes slideInLeft {
+    0%{transform:translate3d(0px, 0px, 0px);}
+    33%{transform: translate3d(0px, 30px, 0px);}
+    66%{transform: translate3d(calc(-1 * var(--swapDist)), 30px, 0px);}
+    100%{transform: translate3d(calc(-1 * var(--swapDist)), 0px, 0px);}  
+}
+@keyframes slideInRight{
+    0%{transform:translate3d(0px, 0px, 0px)}
+    33%{transform: translate3d(0px, -30px, 0px);}
+    66%{transform: translate3d(var(--swapDist), -30px, 0px);}
+    100%{transform: translate3d(var(--swapDist), 0px, 0px);}  
+}
+@keyframes dragDown{
+    0%{transform:translate3d(0px, 0px, 0px);}
+    100%{transform: translate3d(0px, 70px, 0px);}
+}
+@keyframes rightShift{
+    0%{transform:translate3d(0px, 0px, 0px);}
+    100%{transform: translate3d(60px, 0px, 0px);}
+
+}
+@keyframes restingPosition {
+    0% { transform: translate3d(0px, 70px, 0px); }
+    50% { transform: translate3d(calc(-1 * var(--x)), 70px, 0px); }
+    100% { transform: translate3d(calc(-1 * var(--x)), 0px, 0px); }
+}
+@keyframes newMinimum {
+    0%{transform: translate(0px, 0px, 0px);}
+    60%{transform: translate3d(0px, 150px, 0px);}
+    100%{transform: translate3d(var(--minSlide), 150px, 0px);}
+}
+@keyframes mergeSort {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(70px); }
+}
+
+@keyframes split {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(70px); }
+}
+
+
+
+    /*
+        animation-name: slideInLeft;
+        animation-duration: 1s;
+        animation-timing-function: ease-in;
+        animation-iteration-count: 1;
+        animation-direction: normal;
+        animation-fill-mode: none;
+    `*/
+    
+
+/*UTILITY CLASSES*/
+
+/*BubbleSort*/
+.slideInLeft{
+    animation: slideInLeft 2s ease-in-out forwards;
+
+}
+.slideInRight{
+    animation: slideInRight 2s ease-in-out forwards;
+}
+
+/*InsertionSort*/
+
+.shiftRight{
+    animation: rightShift 1s ease-in-out;
+    transform: translateX(60px);
+
+}
+.dragDown{
+    animation: dragDown 1s ease-in-out forwards;
+}
+.restingPosition {
+    animation: restingPosition 2s ease-in-out forwards;
+
+}
+
+/*SelectionSort*/
+.newMinimum{
+    animation: newMinimum 2s ease-in-out forwards;
+}
+
+/*Merge sort*/
+.block {
+    width: 50px;
+    height: 50px;
+    background-color: #3498db;
+    margin: 0 2px;
+    transition: height 0.3s;
+}
+
+.sorted {
+    background-color: #2ecc71;
+}
+
+
+
+/*button styling*/
+button{
+    font-size: 1.5em;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 20px;
+    background-color: hsl(0, 7%, 6%);
+    color: azure;
+}
